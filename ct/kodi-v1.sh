@@ -96,9 +96,10 @@ function advanced_settings() {
 var_version=$(whiptail --title "UBUNTU VERSION" --radiolist "Choose Version" 10 58 3 \
 "22.04" "Jammy" OFF \
 "24.04" "Noble" ON \
+"24.10" "Oracular" OFF \
 3>&1 1>&2 2>&3)
 exitstatus=$?
-if [ $exitstatus = 0 ]; then echo -e "${DGN}Using Debian Version: ${BGN}$var_version${CL}"; fi
+if [ $exitstatus = 0 ]; then echo -e "${DGN}Using Ubuntu Version: ${BGN}$var_version${CL}"; fi
 CT_TYPE=$(whiptail --title "CONTAINER TYPE" --radiolist --cancel-button Exit-Script "Choose Type" 8 58 2 \
 "1" "Unprivileged" ON \
 "0" "Privileged" OFF \
