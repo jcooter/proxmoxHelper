@@ -5,8 +5,8 @@ APP="kodi"
 var_disk="8"
 var_cpu="2"
 var_ram="2048"
-var_os="debian"
-var_version="12"
+var_os="ubuntu"
+var_version="24.04"
 NSAPP=$(echo ${APP,,} | tr -d ' ')
 var_install="${NSAPP}-install"
 NEXTID=$(pvesh get /cluster/nextid)
@@ -93,9 +93,9 @@ function default_settings() {
 		echo -e "${BL}Creating a ${APP} LXC using the above default settings${CL}"
 }
 function advanced_settings() {
-var_version=$(whiptail --title "DEBIAN VERSION" --radiolist "Choose Version" 10 58 3 \
-"11" "Bullseye" OFF \
-"12" "Bookworm" ON \
+var_version=$(whiptail --title "UBUNTU VERSION" --radiolist "Choose Version" 10 58 3 \
+"22.04" "Jammy" OFF \
+"24.04" "Noble" ON \
 3>&1 1>&2 2>&3)
 exitstatus=$?
 if [ $exitstatus = 0 ]; then echo -e "${DGN}Using Debian Version: ${BGN}$var_version${CL}"; fi
